@@ -3,7 +3,7 @@ source ~/dotfiles/checks.zsh
 source ~/dotfiles/functions.zsh
 source ~/dotfiles/aliases.zsh
 source ~/dotfiles/exports.zsh
-source ~/dotfiles/jfrog.zsh
+#source ~/dotfiles/jfrog.zsh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -20,6 +20,7 @@ export NVM_DIR="$HOME/.nvm"
 plugins=(
   git
   docker
+  mise
 )
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -35,3 +36,12 @@ if [ -f '/Users/christine.yu/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 
 # for pyenv
 eval "$(pyenv init -)"
+
+# for direnv
+eval "$(direnv hook zsh)"
+export MONOREPO_INSTALL_DIR="/Users/cyu/repos/monorepo/deps"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(mise activate zsh)"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
